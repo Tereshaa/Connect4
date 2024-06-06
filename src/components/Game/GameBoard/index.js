@@ -282,60 +282,37 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
 		setPause(prevPause => !prevPause)
     }
 
-    const moveMarker = (e) => {
-        const currentColumn = e.target.className.split(' ')[1][4]
-        const currentRow = e.target.className.split(' ')[0][4]
-		const isMobile = width > 375 && height > 812 ? false : true
 
+    const moveMarker = (e) => {
+        const currentColumn = e.target.className.split(' ')[1][4];
+        const currentRow = e.target.className.split(' ')[0][4];
+        const isMobile = width <= 375 && height <= 812;
+    
+        const positions = {
+            '1': isMobile ? '9px' : '32px',
+            '2': isMobile ? '55px' : '120px',
+            '3': isMobile ? '102px' : '208px',
+            '4': 'unset',
+            '5': isMobile ? '102px' : '210px',
+            '6': isMobile ? '55px' : '120px',
+            '7': isMobile ? '9px' : '32px',
+        };
+    
         if (currentColumn === '4') {
-            markerRef.current.style.left = 'unset'
-            markerRef.current.style.right = 'unset'
-        } else if (currentColumn === '1') {
-			if(isMobile){
-				markerRef.current.style.left = '9px'
-			} else {
-				markerRef.current.style.left = '32px'
-			}
-            markerRef.current.style.right = '0px'
-        } else if (currentColumn === '2'){
-			if(isMobile){
-				markerRef.current.style.left = '55px'
-			} else {
-				markerRef.current.style.left = '120px'
-			}
-            markerRef.current.style.right = '0px'
-        } else if (currentColumn === '3') {
-			if(isMobile) {
-				markerRef.current.style.left = '102px'
-			} else {
-				markerRef.current.style.left = '208px'
-			}
-            markerRef.current.style.right = '0px'
-        } else if (currentColumn === '7') {
-			if(isMobile){
-				markerRef.current.style.right = '9px'
-			} else {
-				markerRef.current.style.right = '32px'
-			}
-            markerRef.current.style.left = 'unset'
-        } else if (currentColumn === '6') {
-			if(isMobile){
-				markerRef.current.style.right = '55px'
-			} else {
-				markerRef.current.style.right = '120px'
-			}
-            markerRef.current.style.left = 'unset'
-        } else if (currentColumn === '5'){
-			if(isMobile){
-				markerRef.current.style.right = '102px'
-			} else {
-				markerRef.current.style.right = '210px'
-			}
-            markerRef.current.style.left = 'unset'
+            markerRef.current.style.left = 'unset';
+            markerRef.current.style.right = 'unset';
+        } else if (currentColumn <= '3') {
+            markerRef.current.style.left = positions[currentColumn];
+            markerRef.current.style.right = '0px';
+        } else {
+            markerRef.current.style.right = positions[currentColumn];
+            markerRef.current.style.left = 'unset';
         }
-        setRow(currentRow)
-        setColumn(currentColumn)
-    }
+    
+        setRow(currentRow);
+        setColumn(currentColumn);
+    };
+    
 
     const dropCounter = () => {
         let droppedCounter = false
