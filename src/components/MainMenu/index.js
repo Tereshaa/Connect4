@@ -57,7 +57,7 @@ const MainMenu = () => {
                             ref={playerVersusPlayerRef}
                         >
                             <h1 style={{'fontSize' : '1.5rem'}}>
-                            PLAY VS PLAYER
+                            PLAY NOW :)
                             </h1>
                         </div>
                         <div className='player-v-player-button-b' ref={playerVersusPlayerBRef}></div>
