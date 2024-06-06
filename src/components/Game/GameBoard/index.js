@@ -57,7 +57,7 @@ const GameBoard = ({timer, currentPlayer, setTimer, pause,
 	})
 
     const resetStyle = () => {
-        gameBottomRef.current.style.backgroundColor = 'hsla(257, 67%, 51%, 1)'
+        gameBottomRef.current.style.backgroundColor = '#9bc391'
         whiteBoardRef.current.style.pointerEvents = 'none'
         blackBoardRef.current.style.pointerEvents = 'none'
 
