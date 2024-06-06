@@ -1,0 +1,30 @@
+
+html, body{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #80B9AD;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+@media screen and
+        (max-width: 375px) and
+        (max-height: 812px) {
+
+	#root {
+		overflow: hidden;
+		font-weight: bold;
+	}
+}
